@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrador - EduSync</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 6px; }
+    th { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <h2>Administrador - Gestão de Escolas e Cursos</h2>
+
+  <section>
+    <h3>Escolas</h3>
+    <button onclick="carregarEscolas()">Recarregar</button>
+    <table id="tabela-escolas">
+      <thead>
+        <tr><th>ID</th><th>Nome</th><th>Província</th><th>Ações</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h3>Cursos</h3>
+    <button onclick="carregarCursos()">Recarregar</button>
+    <table id="tabela-cursos">
+      <thead>
+        <tr><th>ID</th><th>Curso</th><th>Área</th><th>Nível</th><th>Escola</th><th>Ações</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <script>
+    async function carregarEscolas() {
+      const resp = await fetch("/api/rotas/escolas.php");
+      const dados = await resp.json();
+      const tbody = document.querySelector("#tabela-escolas tbody");
+      tbody.innerHTML = "";
+      dados.forEach(e => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${e.id}</td><td>${e.nome}</td><td>${e.provincia}</td>
+                        <td><button onclick="apagarEscola(${e.id})">Apagar</button></td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function carregarCursos() {
+      const resp = await fetch("/api/rotas/cursos.php");
+      const dados = await resp.json();
+      const tbody = document.querySelector("#tabela-cursos tbody");
+      tbody.innerHTML = "";
+      dados.forEach(c => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${c.id}</td><td>${c.nome}</td><td>${c.area}</td><td>${c.nivel}</td>
+                        <td>${c.escola_nome}</td>
+                        <td><button onclick="apagarCurso(${c.id})">Apagar</button></td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function apagarEscola(id) {
+      await fetch(`/api/rotas/escolas.php?id=${id}`, { method: "DELETE" });
+      carregarEscolas();
+    }
+
+    async function apagarCurso(id) {
+      await fetch(`/api/rotas/cursos.php?id=${id}`, { method: "DELETE" });
+      carregarCursos();
+    }
+
+    // Carregar na abertura
+    carregarEscolas();
+    carregarCursos();
+  </script>
+</body>
+</html>
