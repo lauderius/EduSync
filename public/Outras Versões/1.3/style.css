@@ -1,0 +1,319 @@
+/* style.css - Improved Styles for EduSync */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 50%, #6c5ce7 100%);
+    color: #2d3436;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-container {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin;
+    scrollbar-color: #ddd transparent;
+}
+
+.chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 3px;
+}
+
+.messages {
+    flex: 1;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    margin-bottom: 20px;
+    padding: 12px 18px;
+    border-radius: 18px;
+    max-width: 75%;
+    word-wrap: break-word;
+    position: relative;
+    animation: fadeIn 0.3s ease-in;
+    line-height: 1.4;
+    font-size: 15px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user-message {
+    background: linear-gradient(135deg, #fd79a8, #e84393);
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+    box-shadow: 0 2px 8px rgba(232, 67, 147, 0.3);
+}
+
+.user-message::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: -8px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid #e84393;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+.ai-message {
+    background: #f8f9fa;
+    color: #2d3436;
+    align-self: flex-start;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ai-message::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-right: 8px solid #f8f9fa;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+.input-container {
+    display: flex;
+    padding: 15px 25px;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+#user-input {
+    flex: 1;
+    padding: 12px 18px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+#user-input:focus {
+    border-color: #00b894;
+}
+
+#send-btn {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    margin-left: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#send-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.4);
+}
+
+.admin-link {
+    text-align: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.admin-link a {
+    color: #0984e3;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.admin-link a:hover {
+    color: #74b9ff;
+    text-decoration: underline;
+}
+
+/* Admin specific styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+form label {
+    font-weight: 500;
+    color: #2d3436;
+}
+
+form input, form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form select:focus {
+    border-color: #00b894;
+    outline: none;
+}
+
+form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button[type="submit"] {
+    background: #00b894;
+    color: white;
+}
+
+form button[type="submit"]:hover {
+    background: #00a085;
+}
+
+#cancel-btn {
+    background: #fd79a8;
+    color: white;
+}
+
+#cancel-btn:hover {
+    background: #e84393;
+}
+
+#schools-list {
+    list-style: none;
+    padding: 0;
+}
+
+#schools-list li {
+    background: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#schools-list button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#schools-list button:first-of-type {
+    background: #0984e3;
+    color: white;
+}
+
+#schools-list button:first-of-type:hover {
+    background: #74b9ff;
+}
+
+#schools-list button:last-of-type {
+    background: #d63031;
+    color: white;
+}
+
+#schools-list button:last-of-type:hover {
+    background: #e17055;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        height: 95vh;
+        max-width: 98%;
+        margin: 10px;
+    }
+    .header {
+        font-size: 22px;
+        padding: 20px;
+    }
+    .chat-container {
+        padding: 20px;
+    }
+    .message {
+        max-width: 90%;
+        font-size: 14px;
+    }
+    .input-container {
+        padding: 10px 20px;
+    }
+    #user-input {
+        font-size: 14px;
+    }
+    #send-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    form {
+        gap: 10px;
+    }
+    #schools-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

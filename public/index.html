@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSync – Seu assistente inteligente para escolas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>🎓 EduSync</h1>
+            <p>Seu assistente inteligente para descobrir escolas.</p>
+        </div>
+        <nav>
+            <a href="admin.html">Painel do Administrador</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="chat-container">
+            <div id="chat-box" class="chat-box">
+                <!-- Mensagens da IA e do usuário serão inseridas aqui -->
+            </div>
+            <div class="chat-input-area">
+                <button id="start-btn">Começar</button>
+                <input type="text" id="user-input" placeholder="Digite sua mensagem..." disabled>
+                <button id="send-btn" disabled>Enviar</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="utils.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

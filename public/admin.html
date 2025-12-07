@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Administrador – EduSync</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>🎓 EduSync</h1>
+            <p>Painel do Administrador</p>
+        </div>
+        <nav>
+            <a href="index.html">Voltar ao Chat</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="admin-login" class="admin-section">
+            <h2>Login do Administrador</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <p><a href="#" id="show-register">Criar novo administrador</a></p>
+        </div>
+
+        <div id="admin-register" class="admin-section" style="display: none;">
+            <h2>Cadastro de Novo Administrador</h2>
+            <form id="register-form">
+                <input type="text" id="register-name" placeholder="Nome" required>
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="password" id="register-password" placeholder="Senha" required>
+                <input type="password" id="register-confirm-password" placeholder="Confirmar Senha" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+            <p><a href="#" id="show-login">Já tenho uma conta</a></p>
+        </div>
+
+        <div id="admin-dashboard" class="admin-section" style="display: none;">
+            <h2>Painel de Gestão de Escolas</h2>
+            <form id="school-form">
+                <input type="text" id="school-name" placeholder="Nome da Escola" required>
+                <input type="text" id="school-level" placeholder="Nível de Ensino" required>
+                <input type="text" id="school-course" placeholder="Curso" required>
+                <input type="text" id="school-period" placeholder="Período" required>
+                <input type="text" id="school-city" placeholder="Cidade" required>
+                <input type="text" id="school-state" placeholder="Estado/Província" required>
+                <button type="submit">Adicionar/Atualizar Escola</button>
+            </form>
+            <hr>
+            <h3>Escolas Cadastradas</h3>
+            <div id="schools-list">
+                <!-- Lista de escolas será inserida aqui -->
+            </div>
+        </div>
+    </main>
+
+    <script src="utils.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

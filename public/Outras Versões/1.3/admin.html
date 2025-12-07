@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSync - Painel Administrativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            EduSync - Painel Administrativo
+        </div>
+        <div class="chat-container">
+            <h3>Adicionar/Editar Escola</h3>
+            <form id="school-form">
+                <input type="hidden" id="school-id">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+                <label for="nivel">Nível:</label>
+                <select id="nivel" required>
+                    <option value="Primário">Primário</option>
+                    <option value="Secundário">Secundário</option>
+                    <option value="Ensino Médio">Ensino Médio</option>
+                </select>
+                <label for="curso">Curso:</label>
+                <input type="text" id="curso" required>
+                <label for="periodo">Período:</label>
+                <select id="periodo" required>
+                    <option value="Manhã">Manhã</option>
+                    <option value="Tarde">Tarde</option>
+                    <option value="Noite">Noite</option>
+                </select>
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" required>
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" required>
+                <button type="submit">Salvar</button>
+                <button type="button" id="cancel-btn">Cancelar</button>
+            </form>
+            <h3>Lista de Escolas</h3>
+            <ul id="schools-list"></ul>
+        </div>
+        <div class="admin-link">
+            <a href="index.html">Voltar ao Chat</a>
+        </div>
+    </div>
+    <script src="utils.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
